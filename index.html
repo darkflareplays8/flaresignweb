@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -19,264 +18,229 @@
       --grad: linear-gradient(135deg, var(--orange), var(--red));
     }
 
-```
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html, body {
-  min-height: 100%;
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Syne', sans-serif;
-  overflow-x: hidden;
-}
+    html, body {
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Syne', sans-serif;
+      overflow-x: hidden;
+    }
 
-/* ── Flame background ── */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 50% -10%, rgba(255,107,26,0.18) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 30% at 80% 110%, rgba(232,37,26,0.12) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: 0;
-}
+    /* ── Flame background ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% -10%, rgba(255,107,26,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 80% 110%, rgba(232,37,26,0.12) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-/* ── Noise grain ── */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.5;
-}
+    /* ── Noise grain ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
 
-.wrap {
-  position: relative;
-  z-index: 1;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 48px 24px;
-}
+    .wrap {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+    }
 
-/* ── Card ── */
-.card {
-  width: 100%;
-  max-width: 420px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 40px 36px;
-  box-shadow:
-    0 0 0 1px rgba(255,107,26,0.06),
-    0 32px 80px rgba(0,0,0,0.6),
-    0 0 60px rgba(255,107,26,0.07);
-  animation: fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) both;
-}
+    /* ── Card ── */
+    .card {
+      width: 100%;
+      max-width: 420px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px 36px;
+      box-shadow:
+        0 0 0 1px rgba(255,107,26,0.06),
+        0 32px 80px rgba(0,0,0,0.6),
+        0 0 60px rgba(255,107,26,0.07);
+      animation: fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) both;
+    }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
-/* ── Logo / Icon ── */
-.icon-wrap {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 28px;
-}
+    /* ── Logo / Icon ── */
+    .icon-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
 
-.app-icon {
-  width: 88px;
-  height: 88px;
-  border-radius: 22px;
-  background: var(--grad);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 32px rgba(232,37,26,0.4), 0 0 0 1px rgba(255,107,26,0.3);
-  animation: pulse 3s ease-in-out infinite;
-}
+    .app-icon {
+      width: 88px;
+      height: 88px;
+      border-radius: 22px;
+      background: var(--grad);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 32px rgba(232,37,26,0.4), 0 0 0 1px rgba(255,107,26,0.3);
+      animation: pulse 3s ease-in-out infinite;
+    }
 
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 8px 32px rgba(232,37,26,0.4), 0 0 0 1px rgba(255,107,26,0.3); }
-  50%       { box-shadow: 0 8px 48px rgba(232,37,26,0.6), 0 0 0 1px rgba(255,107,26,0.5); }
-}
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 8px 32px rgba(232,37,26,0.4), 0 0 0 1px rgba(255,107,26,0.3); }
+      50%       { box-shadow: 0 8px 48px rgba(232,37,26,0.6), 0 0 0 1px rgba(255,107,26,0.5); }
+    }
 
-.flame-svg {
-  width: 44px;
-  height: 44px;
-  fill: white;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
-}
+    .flame-svg {
+      width: 44px;
+      height: 44px;
+      fill: white;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+    }
 
-/* ── Text ── */
-.app-name {
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  text-align: center;
-  background: var(--grad);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1.1;
-}
+    /* ── Text ── */
+    .app-name {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      text-align: center;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+    }
 
-.app-tagline {
-  text-align: center;
-  color: var(--muted);
-  font-size: 0.9rem;
-  margin-top: 6px;
-  margin-bottom: 32px;
-  letter-spacing: 0.01em;
-}
+    .app-tagline {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 6px;
+      margin-bottom: 32px;
+      letter-spacing: 0.01em;
+    }
 
-/* ── Version badge ── */
-.version-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 28px;
-}
+    /* ── Version badge ── */
+    .version-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 5px 12px;
-  border-radius: 99px;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.75rem;
-  border: 1px solid var(--border);
-  color: var(--orange);
-  background: rgba(255,107,26,0.07);
-  letter-spacing: 0.04em;
-}
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 99px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      border: 1px solid var(--border);
+      color: var(--orange);
+      background: rgba(255,107,26,0.07);
+      letter-spacing: 0.04em;
+    }
 
-.badge .dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--orange);
-  box-shadow: 0 0 6px var(--orange);
-}
+    .badge .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 6px var(--orange);
+    }
 
-/* ── Divider ── */
-.divider {
-  height: 1px;
-  background: var(--border);
-  margin: 0 -8px 28px;
-}
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0 -8px 28px;
+    }
 
-/* ── Buttons ── */
-.btn-install {
-  width: 100%;
-  padding: 16px;
-  border-radius: 14px;
-  border: none;
-  background: var(--grad);
-  color: white;
-  font-family: 'Syne', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
-  box-shadow: 0 4px 24px rgba(232,37,26,0.35);
-  text-decoration: none;
-  margin-bottom: 12px;
-}
+    /* ── Buttons ── */
+    .btn-install {
+      width: 100%;
+      padding: 16px;
+      border-radius: 14px;
+      border: none;
+      background: var(--grad);
+      color: white;
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+      box-shadow: 0 4px 24px rgba(232,37,26,0.35);
+      text-decoration: none;
+      margin-bottom: 12px;
+    }
 
-.btn-install:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(232,37,26,0.5);
-}
+    .btn-install:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(232,37,26,0.5);
+    }
 
-.btn-install:active {
-  transform: translateY(0);
-  opacity: 0.88;
-}
+    .btn-install:active {
+      transform: translateY(0);
+      opacity: 0.88;
+    }
 
-.btn-download {
-  width: 100%;
-  padding: 14px;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--orange);
-  font-family: 'Syne', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: background 0.15s, border-color 0.15s, transform 0.15s;
-  text-decoration: none;
-}
+    .btn-download {
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--orange);
+      font-family: 'Syne', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.15s, border-color 0.15s, transform 0.15s;
+      text-decoration: none;
+    }
 
-.btn-download:hover {
-  background: rgba(255,107,26,0.08);
-  border-color: rgba(255,107,26,0.4);
-  transform: translateY(-1px);
-}
+    .btn-download:hover {
+      background: rgba(255,107,26,0.08);
+      border-color: rgba(255,107,26,0.4);
+      transform: translateY(-1px);
+    }
 
-/* ── Notice ── */
-.notice {
-  margin-top: 24px;
-  padding: 14px 16px;
-  border-radius: 12px;
-  background: rgba(255,107,26,0.06);
-  border: 1px solid rgba(255,107,26,0.15);
-  font-size: 0.78rem;
-  color: var(--muted);
-  line-height: 1.6;
-  text-align: center;
-}
 
-.notice strong {
-  color: var(--orange);
-  font-weight: 600;
-}
+    .footer {
+      margin-top: 28px;
+      text-align: center;
+      font-size: 0.72rem;
+      color: rgba(245,240,235,0.2);
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.05em;
+    }
 
-/* ── Footer ── */
-.footer {
-  margin-top: 28px;
-  text-align: center;
-  font-size: 0.72rem;
-  color: rgba(245,240,235,0.2);
-  font-family: 'DM Mono', monospace;
-  letter-spacing: 0.05em;
-}
-
-/* ── iOS only warning ── */
-.ios-only {
-  display: none;
-  margin-top: 16px;
-  padding: 12px 16px;
-  border-radius: 12px;
-  background: rgba(232,37,26,0.08);
-  border: 1px solid rgba(232,37,26,0.2);
-  font-size: 0.8rem;
-  color: #ff7b72;
-  text-align: center;
-  line-height: 1.5;
-}
-
-.ios-only.show { display: block; }
-```
 
   </style>
 </head>
@@ -284,61 +248,52 @@ body::after {
   <div class="wrap">
     <div class="card">
 
-```
-  <div class="icon-wrap">
-    <div class="app-icon">
-      <!-- Flame icon -->
-      <svg class="flame-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2C12 2 8 7 8 11c0 1.5.5 2.8 1.3 3.8C8.5 13.6 8 12.4 8 11c0 0-4 3-4 7a8 8 0 0016 0c0-4.5-3-8-3-8s.5 1.5.5 3c0 1-.3 2-.9 2.7C16 14.5 16 13 16 11c0-3.5-4-9-4-9z"/>
-      </svg>
+      <div class="icon-wrap">
+        <div class="app-icon">
+          <!-- Flame icon -->
+          <svg class="flame-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C12 2 8 7 8 11c0 1.5.5 2.8 1.3 3.8C8.5 13.6 8 12.4 8 11c0 0-4 3-4 7a8 8 0 0016 0c0-4.5-3-8-3-8s.5 1.5.5 3c0 1-.3 2-.9 2.7C16 14.5 16 13 16 11c0-3.5-4-9-4-9z"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="app-name">FlareSign</div>
+      <div class="app-tagline">IPA Signer for iOS — no Xcode required</div>
+
+      <div class="version-row">
+        <span class="badge" id="versionBadge">
+          <span class="dot"></span>
+          <span id="versionText">fetching version…</span>
+        </span>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- OTA Install -->
+      <a class="btn-install" id="otaBtn" href="#">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Install on Device
+      </a>
+
+      <!-- Direct IPA download -->
+      <a class="btn-download" id="ipaBtn" href="https://github.com/darkflareplays8/flaresignweb/releases/download/ipa/signed.ipa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download .ipa
+      </a>
+
+
+
     </div>
-  </div>
 
-  <div class="app-name">FlareSign</div>
-  <div class="app-tagline">IPA Signer for iOS — no Xcode required</div>
-
-  <div class="version-row">
-    <span class="badge" id="versionBadge">
-      <span class="dot"></span>
-      <span id="versionText">fetching version…</span>
-    </span>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- OTA Install -->
-  <a class="btn-install" id="otaBtn" href="#">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
-      <polyline points="7 10 12 15 17 10"/>
-      <line x1="12" y1="15" x2="12" y2="3"/>
-    </svg>
-    Install on Device
-  </a>
-
-  <!-- Direct IPA download -->
-  <a class="btn-download" id="ipaBtn" href="https://github.com/darkflareplays8/flaresignweb/releases/download/ipa/signed.ipa">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
-      <polyline points="7 10 12 15 17 10"/>
-      <line x1="12" y1="15" x2="12" y2="3"/>
-    </svg>
-    Download .ipa
-  </a>
-
-  <div class="ios-only" id="iosWarning">
-    ⚠️ OTA install requires an <strong>iOS device</strong>. Open this page in Safari on your iPhone or iPad.
-  </div>
-
-  <div class="notice">
-    <strong>Requirements:</strong> iOS device with a trusted certificate or AltStore/SideStore. Tap <em>Install on Device</em> in Safari for OTA install.
-  </div>
-
-</div>
-
-<div class="footer">FLARESIGN · GITHUB RELEASES · OTA INSTALLER</div>
-```
-
+    <div class="footer">FLARESIGN · GITHUB RELEASES · OTA INSTALLER</div>
   </div>
 
   <script>
@@ -384,17 +339,7 @@ body::after {
 
     fetchVersion();
 
-    // Detect non-iOS to show warning on OTA click
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    if (!isIOS) {
-      document.getElementById('otaBtn').addEventListener('click', (e) => {
-        e.preventDefault();
-        document.getElementById('iosWarning').classList.add('show');
-        // Still attempt the link
-        window.location.href = otaUrl;
-      });
-    }
-  </script>
 
+  </script>
 </body>
 </html>
